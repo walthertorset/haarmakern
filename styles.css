@@ -237,7 +237,7 @@ body {
 
 .price-list li span:last-child {
     font-weight: 500;
-    color: var(--primary-color);
+    color: var(--text-light);
 }
 
 /* Opening Hours */

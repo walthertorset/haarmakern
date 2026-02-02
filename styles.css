@@ -240,6 +240,49 @@ body {
     color: var(--text-light);
 }
 
+/* Stylists */
+.stylists-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.stylist-card {
+    text-align: center;
+}
+
+.stylist-card img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border: 3px solid var(--primary-color);
+}
+
+.stylist-card h3 {
+    color: var(--text-light);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: 0.05em;
+}
+
+.stylist-card p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .stylists-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
 /* Opening Hours */
 .hours-table {
     max-width: 500px;

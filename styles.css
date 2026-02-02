@@ -419,6 +419,16 @@ body {
     font-weight: 500;
 }
 
+/* Map Container */
+.map-container {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    display: block;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-content h1 {

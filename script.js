@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     dateInput.setAttribute('min', today);
 
     // Handle form submission
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
         // Collect form data
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             email: document.getElementById('email').value,
             phone: document.getElementById('phone').value,
             service: document.getElementById('service').value,
+            stylist: document.getElementById('stylist').value,
             date: document.getElementById('date').value,
             time: document.getElementById('time').value,
             message: document.getElementById('message').value
@@ -27,14 +28,26 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Show success message
-        showSuccessMessage();
+        // Submit to Formspree
+        try {
+            const response = await fetch('https://formspree.io/f/xeezpyla', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
 
-        // Reset form
-        form.reset();
-
-        // In a real application, you would send this data to a server
-        console.log('Appointment request:', formData);
+            if (response.ok) {
+                showSuccessMessage();
+                form.reset();
+            } else {
+                alert('Beklager, noe gikk galt. Vennligst prøv igjen.');
+            }
+        } catch (error) {
+            alert('Beklager, noe gikk galt. Vennligst prøv igjen.');
+        }
     });
 
     // Form validation
